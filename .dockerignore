@@ -1,0 +1,8 @@
+# sleep-counselor-spring/.dockerignore
+target
+.git
+.gitignore
+.idea
+.vscode
+*.iml
+*.log

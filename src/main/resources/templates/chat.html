@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>수면상담 챗봇</title>
+  <link rel="stylesheet" th:href="@{/css/app.css}"/>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <h1>수면상담 챗봇 💤</h1>
+
+    <section>
+      <h3>👤 페르소나</h3>
+      <select id="personaSelect">
+        <option value="전문가 상담가">전문가 상담가</option>
+        <option value="감정 공감 친구">감정 공감 친구</option>
+        <option value="CBT-I 8주 프로그램 코치">CBT-I 8주 프로그램 코치</option>
+      </select>
+    </section>
+
+    <section>
+      <h3>🗓️ CBT-I 주차</h3>
+      <select id="cbtiWeek">
+        <option value="">선택 안함</option>
+        <option th:each="w : ${#numbers.sequence(1,8)}" th:value="${w}" th:text="${w} + '주차'"></option>
+      </select>
+      <div id="cbtiGuide" class="cbti-guide"></div>
+    </section>
+
+    <section>
+      <label><input type="checkbox" id="ttsToggle" checked/> 답변 음성 출력(TTS)</label>
+    </section>
+
+    <hr/>
+    <section>
+      <h3>📊 통계</h3>
+      <div id="stats">총 대화 수: 0</div>
+    </section>
+
+    <hr/>
+    <section>
+      <h3>📚 참고 문서</h3>
+      <div id="referencesEmpty">아직 참고 문서가 없습니다.</div>
+      <div id="references"></div>
+    </section>
+  </aside>
+
+  <main class="main-container">
+    <div id="messages" class="message-container"></div>
+
+    <div class="input-container">
+      <div class="input-row">
+        <input id="userInput" type="text" placeholder="메시지를 입력하세요..."/>
+        <button id="sendBtn">전송</button>
+      </div>
+
+      <div class="mic">
+        <p>🎤 마이크 입력</p>
+        <div class="mic-row">
+          <button id="recBtn">● 녹음 시작</button>
+          <button id="stopBtn" disabled>⏹ 종료 & 전송</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script th:src="@{/js/chat.js}"></script>
+</body>
+</html>

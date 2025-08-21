@@ -1,0 +1,37 @@
+# src/main/resources/application.yml
+server:
+  port: 8080
+
+spring:
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: ${OPENAI_MODEL:gpt-4o-mini}
+          temperature: ${OPENAI_TEMPERATURE:0.2}
+
+  # 큰 오디오/응답 바이트 처리 시 디코딩 버퍼 상향
+  codec:
+    max-in-memory-size: 16MB   # 기본 256KB → TTS/오디오 다룰 땐 키워두면 안전
+
+logging:
+  level:
+    org.springframework.ai: INFO   # 디버깅 시 DEBUG 로 변경
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+app:
+  pinecone:
+    api-key: ${PINECONE_API_KEY}
+    environment: ${PINECONE_ENVIRONMENT}
+    index-name: ${PINECONE_INDEX_NAME}
+  tts:
+    engine: ${TTS_ENGINE:gtts}
+    lang: ${TTS_LANG:ko}
+  bridge:
+    base-url: ${BRIDGE_BASE_URL:http://localhost:8001}
