@@ -6,7 +6,6 @@
 - `BRIDGE_BASE_URL` (파이썬 STT/TTS 브리지, 기본: `http://localhost:8001`)
 
 ## Repository 구조
-
 ```plaintext
 sleep-counselor-spring/
 ├─ pom.xml                 # Maven 프로젝트 설정 파일
@@ -57,4 +56,3 @@ sleep-counselor-spring/
 ```bash
 mvn spring-boot:run
 # 브라우저: http://localhost:8080/chat
-
