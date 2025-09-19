@@ -15,24 +15,24 @@ sleep-counselor-spring/
 ├─ README.md                             # 프로젝트 설명
 ├─ src/main/java/com/example/sleep/
 │  ├─ SleepCounselorApplication.java     # Spring Boot 메인
-│  ├─ config/                            # ⚙️ 전역 설정
+│  ├─ config/                            # 전역 설정
 │  │  ├─ AppProperties.java
 │  │  ├─ AiConfig.java
 │  │  ├─ EnvCheckRunner.java
 │  │  ├─ GlobalExceptionHandler.java
 │  │  └─ WebConfig.java
-│  ├─ app/                               # 🎛️ REST 컨트롤러
+│  ├─ app/                               #  REST 컨트롤러
 │  │  ├─ UiController.java
-│  │  ├─ ChatController.java             # ← 사용자 컨텍스트 포함 호출
+│  │  ├─ ChatController.java             # 사용자 컨텍스트 포함 호출
 │  │  ├─ CbtiController.java
 │  │  ├─ StatsController.java
 │  │  └─ HealthController.java
-│  ├─ conversation/                      # 💬 대화 흐름
+│  ├─ conversation/                      # 대화 흐름
 │  │  └─ ConversationService.java
-│  ├─ prompts/                           # 📝 프롬프트 정의
+│  ├─ prompts/                           # 프롬프트 정의
 │  │  ├─ Personas.java
 │  │  └─ CbtiWeekPrompts.java
-│  ├─ audio/                             # 🎤 STT/TTS/감정
+│  ├─ audio/                             # STT/TTS/감정
 │  │  ├─ SttAdapter.java
 │  │  ├─ TtsAdapter.java
 │  │  ├─ EmotionAdapter.java
@@ -40,22 +40,22 @@ sleep-counselor-spring/
 │  │     ├─ ExternalSttClient.java
 │  │     ├─ ExternalTtsClient.java
 │  │     └─ ExternalEmotionClient.java
-│  ├─ domain/                            # ★ 사용자/수면 도메인
+│  ├─ domain/                            # 사용자/수면 도메인
 │  │  ├─ User.java
 │  │  └─ SleepRecord.java
-│  ├─ repository/                        # ★ JPA 리포지토리
+│  ├─ repository/                        # JPA 리포지토리
 │  │  ├─ UserRepository.java
 │  │  └─ SleepRecordRepository.java
-│  ├─ security/                          # ★ 인증 유틸
+│  ├─ security/                          # 인증 유틸
 │  │  └─ AuthUtils.java                  # (JWT 등에서 userId 추출)
-│  └─ services/                          # 🧩 핵심 서비스
+│  └─ services/                          # 핵심 서비스
 │     ├─ ChatbotService.java             # RAG + LLM + 프롬프트 + 사용자 컨텍스트
-│     ├─ UserContextService.java         # ★ 최근 30일 요약/패턴 조립
+│     ├─ UserContextService.java         # 최근 30일 요약/패턴 조립
 │     └─ dto/                            # DTO 모음
 │        ├─ ChatReply.java
 │        ├─ ReferenceDoc.java
-│        ├─ UserContext.java             # ★ LLM에 전달할 요약 컨텍스트
-│        └─ SleepSummary.java            # ★ 평균/비율/변동성 요약
+│        ├─ UserContext.java             # LLM에 전달할 요약 컨텍스트
+│        └─ SleepSummary.java            # 평균/비율/변동성 요약
 └─ src/main/resources/
    ├─ application.yml                     # 환경설정
    ├─ templates/
@@ -74,4 +74,5 @@ sleep-counselor-spring/
 ```bash
 mvn spring-boot:run
 # 브라우저: http://localhost:8080/chat
+
 
